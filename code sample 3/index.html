@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Test Tracker</title>
+		<meta name="description" content="">
+		<meta name="author" content="sripal">
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
+		<link rel="shortcut icon" href="/favicon.ico">
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+		<link rel="stylesheet" href="css/styles.css" type="text/css">
+	</head>
+
+	 <body>
+         <div class="wrapper clearfix">
+            <div class="heading-container">
+                <h1>
+                    Task Tracker
+                </h1>
+                <p>v2.0</p>
+            </div>
+            <div class="container">
+                <div class="white-card">
+                    <div class="panel">
+                        <div class="panel-body">
+                            <h2>
+                                Create a Task
+                            </h2>
+                            <form id="testForm" name="testForm" class="margin-top" role="form">
+                                <div class="input-container">
+                                    <label for="taskName">
+                                        Task Name
+                                    </label>
+                                    <input type="text"
+                                           id="taskName"
+                                           name="name"
+                                           class="custom-input" required>
+                                </div>
+                                <div class="input-container">
+                                    <label for="date">
+                                        Date
+                                    </label>
+                                    <input type="date"
+                                           id="date"
+                                           name="date"
+                                           class="custom-input" required>
+                                </div>
+                                <div class="input-container">
+                                    <label for="assignedTo">
+                                        Assigned To
+                                    </label>
+                                    <input type="text"
+                                           id="assignedTo"
+                                           name="assigned"
+                                           class="custom-input" required>
+                                </div>
+                                <div class="input-container">
+                                    <button type="submit"
+                                            class="btn btn-default">
+                                        Submit
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="white-card">
+                    <div class="panel">
+                        <div class="panel-body">
+                            <h2>
+                                Existing Tasks
+                            </h2>
+                            <table id="taskListTable" class="striped-table margin-top">
+                                <tbody>
+
+                                </tbody>
+                            </table>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+        <script src="lib/jquery-2.1.4.min.js"></script>
+        <script src="js/testTracker.js"></script>
+    </body>
+   
+</html>
