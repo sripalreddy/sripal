@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='store' >
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>index</title>
+		<meta name="description" content="">
+		<meta name="author" content="sripal">
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
+		<link rel="shortcut icon" href="/favicon.ico">
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+		<link href="css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
+		<script src="js/angular.min.js" type="text/javascript"></script>
+		<script src="app.js" type="text/javascript"></script>
+	</head>
+
+	<body>
+		<div ng-controller="StoreController as store">
+
+			<ul class="list-group">
+
+				<li class="list-group-item" ng-repeat="product in store.product">
+					<h3>{{product.name}} <em class="pull-right"> {{product.price|currency}} </em></h3>
+					<p><img ng-src="{{product.images[1].full}}">
+					</p>
+
+				</li>
+
+			</ul>
+
+			<section ng-init="tab=1">
+
+				<ul class="nav nav-pills">
+					<li>
+						<a href='#'  ng-click="tab=1"> Description</a>
+					</li>
+					<li>
+						<a href='#'  ng-click="tab=2"> Specifications</a>
+					</li>
+					<li>
+						<a href='#'   ng-click="tab=3"> Reviews</a>
+					</li>
+
+				</ul>
+				{{tab}}
+
+			</section>
+
+			<div class="panel" ng-show="tab===1">
+				<h4>Description</h4>
+				<p>
+					{{product.description}}
+				</p>
+
+			</div>
+			<div class="panel" ng-show="tab===2">
+				<h4>Specification</h4>
+				<blockquote>
+					not yet
+				</blockquote>
+
+			</div>
+			<div class="panel" ng-show="tab===3">
+				<h4>Reviews</h4>
+				<blockquote>
+					not yet
+				</blockquote>
+
+			</div>
+
+			<form name="reviewform" novalidate="">
+
+				<blockquote>
+
+					<b> Stars:{{review.stars}}</b>
+					{{review.body}}
+
+					by: {{review.author}}
+
+				</blockquote>
+				<select ng-model="review.stars">
+
+					<option value="1">1 Star</option>
+					<option value="2">2 Star</option>
+					<option value="3">3 Star</option>
+					<option value="4">4 Star</option>
+					<option value="5">5 Star</option>
+
+				</select>
+				<textarea ng-model="review.body"></textarea>
+
+				<label> by:</label>
+				<input ng-model="review.author" type="email">
+				<input type="submit" value="submit">
+
+			</form>
+
+			<div ng-hide="store.product[0].soldOut">
+
+				<h1>{{store.product[0].name}}</h1>
+				<h2>${{store.product[0].price}}</h2>
+				<p>
+					{{store.product[0].description}}
+				</p>
+
+				<button ng-show="store.product[0].canPurchase">
+					Add to cart
+				</button>
+
+			</div>
+
+			<div ng-hide="store.product[1].soldOut">
+
+				<h1>{{store.product[1].name}}</h1>
+				<h2>${{store.product[1].price}}</h2>
+				<p>
+					{{store.product[1].description}}
+				</p>
+
+				<button ng-show="store.product[1].canPurchase">
+					Add to cart
+				</button>
+
+			</div>
+			<div ng-hide="store.product[2].soldOut">
+
+				<h1>{{store.product[2].name}}</h1>
+				<h2>${{store.product[2].price}}</h2>
+				<p>
+					{{store.product[2].description}}
+				</p>
+
+				<button ng-show="store.product[2].canPurchase">
+					Add to cart
+				</button>
+
+			</div>
+
+		</div>
+
+	</body>
+</html>
